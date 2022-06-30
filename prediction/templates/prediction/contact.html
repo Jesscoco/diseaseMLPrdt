@@ -1,0 +1,21 @@
+{% extends "prediction/base.html" %} {% block content %}
+<header>
+    <h3>Contactez nous</h3>
+  </header>
+  <section>
+    <div class="wrapper">
+      <form action="" method="post" novalidate class="form_items">
+        {% csrf_token %}
+        <div class="form_item">
+          {{form.as_p}}
+          <input type="submit" value="Envoyer" />
+        </div>
+      </form>
+      <div>
+        {% for prediction in predictions %}
+        {{prediction.name}} ,{{prediction.symptom_n1 }} <br/>
+       <hr/>
+        {% endfor %}
+      </div>
+  </section>
+{% endblock %}

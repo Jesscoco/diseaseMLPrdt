@@ -1,0 +1,26 @@
+{% extends "prediction/base.html" %} {% block content %}
+
+<header class="bg-primary">
+  <h3 class="text-center text-white py-3 text-uppercase">Disease prediction</h3>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 offset-3 mt-5">
+      <form action="" method="post" novalidate class="form_items">
+        {% csrf_token %}
+        <div class="form_items">
+          <div class="form_item">{{form.as_p}}</div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+          <input type="submit" value="Prediction" class="btn btn-secondary" />
+        </div>
+      </form>
+      <div class="results">
+        <h4>Prediction: {{actualpredition}}</h4>
+        <h5>Precision: {{precision}} %</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
